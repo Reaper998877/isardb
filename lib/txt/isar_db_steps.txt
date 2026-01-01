@@ -1,0 +1,60 @@
+// Isar is an ACID database, meaning it guarantees:
+// Atomicity → all-or-nothing
+// Consistency → DB always valid
+// Isolation → no interference from other operations
+// Durability → data stays safe
+// To guarantee this, all write operations must happen inside a transaction.
+
+Step 1 : Add dependencies in pubspec.yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  path_provider: ^2.1.3          
+
+  isar_community: ^3.3.0         
+
+  isar_community_flutter_libs: ^3.3.0   
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  isar_community_generator: ^3.3.0   
+
+  build_runner: ^2.4.6      
+
+
+
+Step 2 : Create model. (Here m_student.dart)
+# Model is necessary for organizing data in isar db.
+See m_student.dart (Change according to requirements)
+
+
+
+Step 3 : Open Terminal and run below command 
+command => flutter pub run build_runner build 
+
+'modelname.g.dart' file will be created in the same directory, where the model file is.
+Here it is m_student.g.dart
+
+
+
+Step 4 : In main.dart file write below code
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+}
+
+
+
+Step 5 : Create Controller to perform CRUD operations.
+See c_student.dart
+
+
+
+Step 6 : Using controller.
+See v_student.dart
